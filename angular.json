@@ -28,7 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -123,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "bidmin"
+    }
+  },
+  "defaultProject": "bidmin",
+  "cli": {
+    "analytics": "3b9da428-153b-497f-b39e-ecc86f881c84"
+  }
 }

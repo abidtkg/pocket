@@ -1,0 +1,116 @@
+<div class="container">
+    <app-header></app-header>
+    <div class="card-deck">
+        <div class="card mb-3 overflow-hidden" style="min-width: 12rem">
+            <div class="bg-holder bg-card" style="background-image:url(assets/image/shape/card-bg.png);"></div>
+            <div class="card-body position-relative">
+                <h6>Customers<span class="badge badge-soft-warning rounded-capsule ml-2">-0.23%</span></h6>
+                <div class="display-4 fs-4 mb-2 font-weight-normal text-sans-serif text-warning">58.39k</div>
+                <a class="font-weight-semi-bold fs--1 text-nowrap" href="#!">See all</a>
+            </div>
+        </div>
+        <div class="card mb-3 overflow-hidden" style="min-width: 12rem">
+            <div class="bg-holder bg-card" style="background-image:url(assets/image/shape/card-bg.png);"></div>
+            <div class="card-body position-relative">
+                <h6>Orders<span class="badge badge-soft-info rounded-capsule ml-2">0.0%</span></h6>
+                <div class="display-4 fs-4 mb-2 font-weight-normal text-sans-serif text-info">73.46k</div><a class="font-weight-semi-bold fs--1 text-nowrap" href="#!">All orders</a>
+            </div>
+        </div>
+        <div class="card mb-3 overflow-hidden" style="min-width: 12rem">
+            <div class="bg-holder bg-card" style="background-image:url(assets/image/shape/card-bg.png);"></div>
+            <div class="card-body position-relative">
+                <h6>Revenue<span class="badge badge-soft-success rounded-capsule ml-2">9.54%</span></h6>
+                <div class="display-4 fs-4 mb-2 font-weight-normal text-sans-serif">$43,594</div><a class="font-weight-semi-bold fs--1 text-nowrap" href="#!">Statistics</a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="card mb-3">
+        <div class="card-header">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-6 col-sm-auto d-flex align-items-center pr-0">
+                    <h5 class="fs-0 mb-0 text-nowrap py-2 py-xl-0">Recent Purchases</h5>
+                </div>
+                <div class="col-6 col-sm-auto ml-auto text-right pl-0">
+                    <div class="d-none" id="purchases-actions">
+                        <div class="input-group input-group-sm"><select class="custom-select cus" aria-label="Bulk actions">
+                            <option selected="">Bulk actions</option>
+                            <option value="Refund">Refund</option>
+                            <option value="Delete">Delete</option>
+                            <option value="Archive">Archive</option>
+                        </select>
+                        <button class="btn btn-falcon-default btn-sm ml-2" type="button">Apply</button></div>
+                    </div>
+                    <div id="dashboard-actions">
+                        <button class="btn btn-falcon-default btn-sm" routerLink="/invoice/create" > <i class="fas fa-plus"></i> <span class="d-none d-sm-inline-block ml-1">New</span></button>
+                        <button class="btn btn-falcon-default btn-sm mx-2"> <i class="fas fa-filter"></i> <span class="d-none d-sm-inline-block ml-1">Filter</span></button>
+                        <button class="btn btn-falcon-default btn-sm"><span class="d-none d-sm-inline-block ml-1">Export</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body px-0 pt-0">
+            <div class="dashboard-data-table">
+                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                    <div class="row mx-1">
+                        <div class="col-sm-12 col-md-6 px-3">
+
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-dashboard fs--1 data-table border-bottom dataTable no-footer">
+                            <thead class="bg-200 text-900">
+                                <th>  <span class="ml-3"> Customer</span> </th>
+                                <th> Email </th>
+                                <th> Product </th>
+                                <th style="width: 107.203px;"> Payments </th>
+                                <th style="width: 107.203px;"> Amount </th>
+                                <th class="align-middle text-right"> <span class="mr-3">Actions</span>  </th>
+                                
+                            </thead>
+                            <tbody>
+                                <tr class="btn-reveal-trigger odd" role="row">
+                                    <th>
+                                        <a href="pages/customer-details.html">Sylvia Plath</a>
+                                    </th>
+                                    
+                                    <td>john@gmail.com</td>
+                                    <td> Server Side API Integrations </td>
+                                    <td class="fs-0">
+                                        <span class="badge badge rounded-capsule badge-soft-success"> Success  <i class="fas fa-check ml-1"></i> </span>
+                                    </td>
+                                    <td class="">$99</td>
+                                    <td class="align-middle text-right">
+                                        <button class="btn btn-sm btn-danger"> <i class="far fa-trash-alt"></i> </button>
+                                        <button class="btn btn btn-sm btn-info ml-2 mr-2"> <i class="far fa-edit"></i> </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row mx-1 align-items-center justify-content-center justify-content-md-between">
+                        <div class="col-auto mb-2 mb-sm-0">
+                            <div class="dataTables_info">
+                                1 to 8 Items of 11 — 
+                                <a href="#" class="font-weight-semi-bold">view all </a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="dataTables_paginate paging_simple">
+                                <ul class="pagination pagination-sm">
+                                    <li class="paginate_button page-item previous disabled">
+                                        <a href="#" aria-controls="DataTables_Table_0" class="page-link">Previous</a>
+                                    </li>
+                                    <li class="paginate_button page-item next">
+                                        <a href="#" class="page-link">Next</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
