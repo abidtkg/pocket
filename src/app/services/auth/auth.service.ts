@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { IAuth } from '../../Interfaces/Auth';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ import { IAuth } from '../../Interfaces/Auth';
 export class AuthService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private route: Router
   ) { }
 
   private baseURL = 'https://jsengine.herokuapp.com';
@@ -32,6 +34,13 @@ export class AuthService {
   // tslint:disable-next-line: typedef
   getToken(){
     return localStorage.getItem('token');
+  }
+
+  // tslint:disable-next-line: typedef
+  logOut(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('name');
+    this.route.navigate(['/login']);
   }
   // tslint:disable-next-line: typedef
   errorHandeller(error: HttpErrorResponse){

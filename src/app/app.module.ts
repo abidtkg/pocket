@@ -17,6 +17,7 @@ import { FooterComponent } from './components/layouts/footer/footer.component';
 import { HeaderComponent } from './components/layouts/header/header.component';
 import { MainDashComponent } from './components/pages/dash/main-dash/main-dash.component';
 import { NewinvoiceComponent } from './components/pages/create/newinvoice/newinvoice.component';
+import { EditinvoiceComponent } from './components/pages/edit/editinvoice/editinvoice.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NewinvoiceComponent } from './components/pages/create/newinvoice/newinv
     FooterComponent,
     HeaderComponent,
     MainDashComponent,
-    NewinvoiceComponent
+    NewinvoiceComponent,
+    EditinvoiceComponent
   ],
   imports: [
     BrowserModule,

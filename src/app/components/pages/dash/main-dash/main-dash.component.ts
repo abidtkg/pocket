@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { DashboardService } from '../../../../services/dash/dashboard.service';
 import { InvoiceService } from '../../../../services/customar/invoice.service';
+import { ToastrService } from 'ngx-toastr';
+import { IInvoice } from '../../../../Interfaces/Invoice';
 
 @Component({
   selector: 'app-main-dash',
@@ -14,12 +16,13 @@ export class MainDashComponent implements OnInit {
 
   public revenue: any;
   public invoices: any;
-  public invoicesList: any;
+  public showInvoices: any;
 
   constructor(
     private title: Title,
     private dash: DashboardService,
-    private invoice: InvoiceService
+    private invoice: InvoiceService,
+    private toaster: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -34,8 +37,19 @@ export class MainDashComponent implements OnInit {
 
     this.invoice.get(0, 10)
     .subscribe(data => {
-      this.invoicesList = data;
+      this.showInvoices = data;
     });
   }
 
+  // tslint:disable-next-line: typedef
+  onDelete(invoice: IInvoice){
+    this.invoice.delete(invoice._id)
+    .subscribe(data => {
+      this.toaster.success('Deleted');
+      this.showInvoices = this.showInvoices.filter((t: { _id: string; }) => t._id !== invoice._id);
+    }, (error) => {
+      this.toaster.error('Delete Faild');
+      console.log(error);
+    });
+  }
 }

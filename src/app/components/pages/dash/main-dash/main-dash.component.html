@@ -55,9 +55,7 @@
             <div class="dashboard-data-table">
                 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                     <div class="row mx-1">
-                        <div class="col-sm-12 col-md-6 px-3">
-
-                        </div>
+                        <div class="col-sm-12 col-md-6 px-3"></div>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-sm table-dashboard fs--1 data-table border-bottom dataTable no-footer">
@@ -68,23 +66,23 @@
                                 <th style="width: 107.203px;"> Payments </th>
                                 <th style="width: 107.203px;"> Amount </th>
                                 <th class="align-middle text-right"> <span class="mr-3">Actions</span>  </th>
-                                
                             </thead>
                             <tbody>
-                                <tr class="btn-reveal-trigger odd" role="row">
-                                    <th>
-                                          item.name 
-                                    </th>
-                                    
-                                    <td> item.email</td>
-                                    <td> Server Side API Integrations </td>
+                                <tr *ngFor="let item of showInvoices" class="btn-reveal-trigger odd" role="row">
+                                    <th> {{ item.name }} </th>
+                                    <td> {{ item.email }}</td>
+                                    <td> {{ item.projectName }} </td>
                                     <td class="fs-0">
-                                        <span class="badge badge rounded-capsule badge-soft-success"> Success  <i class="fas fa-check ml-1"></i> </span>
+                                        <span *ngIf="item.status === 'active'" class="badge badge rounded-capsule badge-soft-info"> <i class="far fa-check-circle"></i> Active</span>
+                                        <span *ngIf="item.status === 'paused'" class="badge badge rounded-capsule badge-soft-warning"> <i class="far fa-clock"></i> Paused</span>
+                                        <span *ngIf="item.status === 'payment'" class="badge badge rounded-capsule badge-soft-info"> <i class="fas fa-dollar-sign"></i> Payment</span>
+                                        <span *ngIf="item.status === 'declined'" class="badge badge rounded-capsule badge-soft-danger"> <i class="fas fa-times-circle"></i> Declined</span>
+                                        <span *ngIf="item.status === 'done'" class="badge badge rounded-capsule badge-soft-success"> <i class="fas fa-check-circle"></i> Done</span>
                                     </td>
-                                    <td class="">$99</td>
+                                    <td class=""> ৳ {{ item.amount }} </td>
                                     <td class="align-middle text-right">
-                                        <button class="btn btn-sm btn-danger"> <i class="far fa-trash-alt"></i> </button>
-                                        <button class="btn btn btn-sm btn-info ml-2 mr-2"> <i class="far fa-edit"></i> </button>
+                                        <button (click)="onDelete(item)" class="btn btn-sm btn-danger"> <i class="far fa-trash-alt"></i> </button>
+                                        <a class="btn btn btn-sm btn-info ml-2 mr-2" routerLink="/invoice/edit/{{ item._id }} "> <i class="far fa-edit"></i> </a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -93,7 +91,7 @@
                     <div class="row mx-1 align-items-center justify-content-center justify-content-md-between">
                         <div class="col-auto mb-2 mb-sm-0">
                             <div class="dataTables_info">
-                                1 to 8 Items of 11 — 
+                                1 to 10 Items of 11 — 
                                 <a href="#" class="font-weight-semi-bold">view all </a>
                             </div>
                         </div>
@@ -115,5 +113,3 @@
         </div>
     </div>
 </div>
-
-<div *ngFor="item of invoicesList"> {{ item.name }} </div>

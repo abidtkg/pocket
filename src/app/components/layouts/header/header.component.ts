@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private auth: AuthService
+  ) { }
 
+  public loggedUser = localStorage.getItem('name');
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line: typedef
+  logOut(){
+    this.auth.logOut();
+  }
 }
