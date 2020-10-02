@@ -7,6 +7,7 @@ export interface IInvoice{
     projectDetiles: string;
     country: string;
     status: string;
+    note: string;
     amount: number;
     paid: number;
     date: string;

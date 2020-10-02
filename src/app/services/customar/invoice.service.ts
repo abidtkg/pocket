@@ -23,8 +23,26 @@ export class InvoiceService {
     );
   }
 
+  single(invoice: string): Observable<IInvoice>{
+    return this.http.get<IInvoice>
+    (`${this.baseURL}/get/single/${invoice}`)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandeller)
+    );
+  }
+
   create(invoice: object): Observable<IInvoice>{
     return this.http.post<IInvoice>(`${this.baseURL}/create`, invoice)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandeller)
+    );
+  }
+
+  update(id: string, invoice: object): Observable<IInvoice>{
+    return this.http.put<IInvoice>
+    (`${this.baseURL}/edit/${id}`, invoice)
     .pipe(
       retry(1),
       catchError(this.errorHandeller)
