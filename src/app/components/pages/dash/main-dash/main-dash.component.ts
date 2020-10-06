@@ -4,6 +4,7 @@ import { DashboardService } from '../../../../services/dash/dashboard.service';
 import { InvoiceService } from '../../../../services/customar/invoice.service';
 import { ToastrService } from 'ngx-toastr';
 import { IInvoice } from '../../../../Interfaces/Invoice';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 
 @Component({
   selector: 'app-main-dash',
@@ -22,10 +23,13 @@ export class MainDashComponent implements OnInit {
     private title: Title,
     private dash: DashboardService,
     private invoice: InvoiceService,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private loadingBar: LoadingBarService
   ) { }
 
   ngOnInit(): void {
+    // tslint:disable-next-line: deprecation
+    this.loadingBar.start();
     this.revenue = this.spinner;
     this.invoices = this.spinner;
     this.title.setTitle('Dashboard - Admin Panel');
@@ -38,6 +42,8 @@ export class MainDashComponent implements OnInit {
     this.invoice.get(0, 10)
     .subscribe(data => {
       this.showInvoices = data;
+      // tslint:disable-next-line: deprecation
+      this.loadingBar.complete();
     });
   }
 

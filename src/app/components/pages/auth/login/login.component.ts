@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
     private auth: AuthService,
     private title: Title,
     private toaster: ToastrService,
-    private router: Router
+    private router: Router,
+    private loadingBar: LoadingBarService
   ) { }
 
   ngOnInit(): void {
@@ -31,13 +33,16 @@ export class LoginComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   login(){
-
+    // tslint:disable-next-line: deprecation
+    this.loadingBar.start();
     const info = {
       email: this.getEmail,
       password: this.getPassword
     };
     this.auth.login(info)
     .subscribe(data => {
+      // tslint:disable-next-line: deprecation
+      this.loadingBar.complete();
       localStorage.setItem('token', data.token);
       localStorage.setItem('name', data.name);
       this.toaster.success(`Logged as ${data.name}`);
@@ -45,6 +50,8 @@ export class LoginComponent implements OnInit {
     }, (error) => {
       console.log(error);
       this.toaster.error('Failed To Login');
+      // tslint:disable-next-line: deprecation
+      this.loadingBar.complete();
     });
   }
 }

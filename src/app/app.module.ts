@@ -18,6 +18,12 @@ import { HeaderComponent } from './components/layouts/header/header.component';
 import { MainDashComponent } from './components/pages/dash/main-dash/main-dash.component';
 import { NewinvoiceComponent } from './components/pages/create/newinvoice/newinvoice.component';
 import { EditinvoiceComponent } from './components/pages/edit/editinvoice/editinvoice.component';
+import { ViewinvoiceComponent } from './components/pages/view/viewinvoice/viewinvoice.component';
+import { InvoiceService } from './services/customar/invoice.service';
+// import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+// import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { LOADING_BAR_CONFIG } from '@ngx-loading-bar/core';
 
 @NgModule({
   declarations: [
@@ -28,7 +34,8 @@ import { EditinvoiceComponent } from './components/pages/edit/editinvoice/editin
     HeaderComponent,
     MainDashComponent,
     NewinvoiceComponent,
-    EditinvoiceComponent
+    EditinvoiceComponent,
+    ViewinvoiceComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +44,16 @@ import { EditinvoiceComponent } from './components/pages/edit/editinvoice/editin
     FormsModule,
     BrowserAnimationsModule,
     CommonModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    LoadingBarModule
   ],
-  providers: [AuthService, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}, AuthGuard],
+  providers: [
+    AuthService,
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+    AuthGuard,
+    InvoiceService,
+    { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

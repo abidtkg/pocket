@@ -76,7 +76,7 @@
                     <div class="col">
                       <div class="form-group">
                         <label class="ls text-uppercase text-600 font-weight-semi-bold mb-0" for="projectDetiles">Project Detiles</label>
-                        <textarea [(ngModel)]="getProjectDetiles" class="form-control" id="projectDetiles" placeholder="" type="text"></textarea>
+                        <textarea [(ngModel)]="getProjectDetiles" class="form-control" id="projectDetiles" rows="8"  type="text"></textarea>
                       </div>
                     </div>
                   </div>
@@ -128,7 +128,8 @@
               </div>
               <hr>
               <h5 class="d-flex justify-content-between"><span>Due today</span><span> ৳ {{ getPaid }} </span></h5>
-              <p class="fs--1 text-600">Once you start your trial, you will have 30 days to use Falcon Premium for free. After 30 days you’ll be charged based on your selected plan.</p>
+              <!-- <p class="fs--1 text-600">Once you start your trial, you will have 30 days to use Falcon Premium for free. After 30 days you’ll be charged based on your selected plan.</p> -->
+              <textarea [(ngModel)]="getNote" class="form-control mb-2" id="projectNote" rows="3"></textarea>
               <button (click)="create()" class="btn btn-primary btn-block" type="submit"><svg class="svg-inline--fa fa-lock fa-w-14 mr-2" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="lock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path></svg><!-- <span class="fa fa-lock mr-2"></span> --> Procced Invoice </button>
               <div class="text-center mt-2">
                 <small class="d-inline-block">By continuing, you are agreeing to our subscriber <a href="/pages/billing#!">terms</a> and will be charged at the end of the trial. </small></div>

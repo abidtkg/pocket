@@ -21,6 +21,7 @@ export class NewinvoiceComponent implements OnInit {
   public getCountry = '';
   public getAmount = 0;
   public getPaid = 0;
+  public getNote = '';
 
   public countries = countryList;
 
@@ -45,7 +46,8 @@ export class NewinvoiceComponent implements OnInit {
       country: this.getCountry,
       status: this.getStatus,
       amount: this.getAmount,
-      paid: this.getPaid
+      paid: this.getPaid,
+      note: this.getNote
     };
     this.Invoice.create(invoiceObject)
     .subscribe(data => {
