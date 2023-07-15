@@ -8,11 +8,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { ConfirmationComponent } from './dialogs/confirmation/confirmation.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { timeStampToDate } from './pipes/todatetime.pipe';
+import { HelperService } from './services/helper.service';
 
 
 @NgModule({
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    ConfirmationComponent,
+    timeStampToDate
   ],
   imports: [
     CommonModule,
@@ -21,10 +28,17 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatMenuModule,
+    MatDialogModule
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    ConfirmationComponent,
+    timeStampToDate
+  ],
+  providers: [
+    HelperService
   ]
 })
 export class SharedModule { }

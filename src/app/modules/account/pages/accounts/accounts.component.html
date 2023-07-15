@@ -1,3 +1,69 @@
 <app-navbar>
-    asdf
+    <div class="container mt-3">
+        <mat-toolbar>
+            <button mat-raised-button color="primary" (click)="create()" >Create</button>
+            <span class="middle-spacer"></span>
+            <button mat-icon-button class="example-icon">
+              <mat-icon>sync</mat-icon>
+            </button>
+          </mat-toolbar>
+          
+        <div class="example-container">
+            <div class="example-loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
+                <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+                <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">NO DATA FOUND!</div>
+            </div>
+            
+            <div class="example-table-container">
+                <table mat-table [dataSource]="data" class="example-table">
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef>Account</th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.name}}  <br>
+                            <span class="text-muted" style="font-style: italic;"> AC: {{ element.number }}</span>
+                        </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="balance">
+                        <th mat-header-cell *matHeaderCellDef>Balance</th>
+                        <td mat-cell *matCellDef="let element"> {{element.balance}} BDT </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="updated">
+                        <th mat-header-cell *matHeaderCellDef>Updated</th>
+                        <td mat-cell *matCellDef="let element">{{element.updated | timeStampToDate: element.updated }} <br> <span class="text-muted" style="font-style: italic;"> {{ element.service }}</span> </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef>Date</th>
+                        <td mat-cell *matCellDef="let element"> {{ element.date | timeStampToDate: element.date }} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef>Action</th>
+                        <td mat-cell *matCellDef="let element">
+                            <button mat-icon-button [matMenuTriggerFor]="menu">
+                                <mat-icon>more_vert</mat-icon>
+                            </button>
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item>
+                                    <mat-icon>visibility</mat-icon>
+                                    <span>Account Details</span>
+                                </button>
+                                <button mat-menu-item (click)="update(element._id)" >
+                                    <mat-icon>edit</mat-icon>
+                                    <span>Update Account</span>
+                                </button>
+                            </mat-menu>
+                        </td>
+                    </ng-container>
+                    
+                    <tr mat-header-row *matHeaderRowDef="tableCols"></tr>
+                    <tr mat-row *matRowDef="let row; columns: tableCols;"></tr>
+                </table>
+            </div>
+            <mat-paginator [length]="resultsLength" [pageSizeOptions]="[10, 20, 50, 100]" (page)="handlePageEvent($event)" [pageSize]="dataLimit" aria-label="Select page of GitHub search results"></mat-paginator>
+        </div>
+    </div>
+
 </app-navbar>
