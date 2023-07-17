@@ -1,24 +1,23 @@
-
 table {
     width: 100%;
 }
 /* Structure */
 .example-container {
     position: relative;
-  }
-  
-  .example-table-container {
+}
+
+.example-table-container {
     position: relative;
     min-height: 200px;
     max-height: 600px;
     overflow: auto;
-  }
-  
-  table {
+}
+
+table {
     width: 100%;
-  }
-  
-  .example-loading-shade {
+}
+
+.example-loading-shade {
     position: absolute;
     top: 0;
     left: 0;
@@ -29,19 +28,18 @@ table {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .example-rate-limit-reached {
+}
+
+.example-rate-limit-reached {
     max-width: 360px;
     text-align: center;
-  }
-  
-  /* Column Widths */
-  .mat-column-number,
-  .mat-column-state {
+}
+
+/* Column Widths */
+.mat-column-number, .mat-column-state {
     max-width: 64px;
-  }
-  
-  .mat-column-created {
+}
+
+.mat-column-created {
     max-width: 124px;
-  }
+}

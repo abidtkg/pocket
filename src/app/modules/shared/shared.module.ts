@@ -13,13 +13,15 @@ import { ConfirmationComponent } from './dialogs/confirmation/confirmation.compo
 import { MatDialogModule } from '@angular/material/dialog';
 import { timeStampToDate } from './pipes/todatetime.pipe';
 import { HelperService } from './services/helper.service';
+import { thousandSeparetor } from './pipes/thousandseparetor.pipe';
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
     ConfirmationComponent,
-    timeStampToDate
+    timeStampToDate,
+    thousandSeparetor
   ],
   imports: [
     CommonModule,
@@ -35,7 +37,8 @@ import { HelperService } from './services/helper.service';
   exports: [
     NavbarComponent,
     ConfirmationComponent,
-    timeStampToDate
+    timeStampToDate,
+    thousandSeparetor
   ],
   providers: [
     HelperService
