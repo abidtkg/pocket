@@ -25,6 +25,7 @@
 
                 <button (click)="login()" mat-raised-button color="primary" style="margin-right: 5px;" class="mb-4">Login</button>
                 <button (click)="forgetPassword()" mat-button color="primary" class="mb-4">Forget Password?</button>
+                <button [routerLink]="['/auth/register']" mat-button color="primary" class="mb-4 float-end">Register Account</button>
             </div>
         </mat-card>
         <div class="col-xl-3"></div>

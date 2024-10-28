@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     .subscribe({
       next: (data) => {
         this.SnackBar.open('Logged In', 'Close');
-        localStorage.setItem('token', data.token);
+        localStorage.setItem('pocket_token', data.token);
         this.Router.navigate(['/dash/dashboard']);
         this.isProcessing = false;
       },

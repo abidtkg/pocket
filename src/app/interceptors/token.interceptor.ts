@@ -7,7 +7,7 @@ export class TokenInterceptor implements HttpInterceptor {
     constructor() {}
     
     intercept(request: HttpRequest<any>, next: HttpHandler) {
-        const authToken = localStorage.getItem('token') || 'null';
+        const authToken = localStorage.getItem('pocket_token') || 'null';
         const insertedToken = request.clone({
             setHeaders: {
                 token: authToken

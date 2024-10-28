@@ -7,3 +7,9 @@ export interface ILoginRes {
     token: string;
     name: string;
 }
+
+export interface IUserRegister {
+    name: string;
+    email: string;
+    password: string;
+}

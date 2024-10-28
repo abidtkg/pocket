@@ -11,7 +11,7 @@ export class AuthGuard  {
     private Router: Router 
   ){}
   canActivate(): boolean {
-    if (!!localStorage.getItem('token')){
+    if (!!localStorage.getItem('pocket_token')){
       return true;
     }else{
       this.Router.navigate(['/auth/login']);

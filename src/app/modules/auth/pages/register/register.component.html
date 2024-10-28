@@ -1,1 +1,39 @@
-<p>register works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-3"></div>
+        <mat-card class="col-xl-6 login">
+            <mat-card-header class="mb-2">
+                <div mat-card-avatar class="header-image"></div>
+                <mat-card-title>Register Account</mat-card-title>
+                <mat-card-subtitle> {{ appName }} Service </mat-card-subtitle>
+              </mat-card-header>
+            <div>
+                <div class="mb-2">
+                    <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+                        <mat-label>Full Name</mat-label>
+                        <input [(ngModel)]="name" matInput type="text">
+                    </mat-form-field>
+                    <!-- <input class="form-control" placeholder="email" type="email" name="email" autocomplete="off"> -->
+                </div>
+                <div class="mb-2">
+                    <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+                        <mat-label>Email</mat-label>
+                        <input [(ngModel)]="email" matInput type="text">
+                    </mat-form-field>
+                    <!-- <input class="form-control" placeholder="email" type="email" name="email" autocomplete="off"> -->
+                </div>
+                <div class="mb-3">
+                    <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+                        <mat-label>Password</mat-label>
+                        <input [(ngModel)]="password" matInput type="password">
+                    </mat-form-field>
+                </div>
+                <mat-progress-bar *ngIf="isProcessing == true" class="mb-2" mode="indeterminate"></mat-progress-bar>
+
+                <button (click)="register()" mat-raised-button color="primary" style="margin-right: 5px;" class="mb-4">Submit</button>
+                <button [routerLink]="['/auth/login']" mat-button color="primary" class="mb-4 float-end">Back to login</button>
+            </div>
+        </mat-card>
+        <div class="col-xl-3"></div>
+    </div>
+</div>
